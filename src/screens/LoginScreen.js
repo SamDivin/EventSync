@@ -116,7 +116,7 @@ export default function LoginScreen({ navigation }) {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleLogin = () => {
-    console.log('Login pressed');
+    navigation.navigate('Success', { action: 'login' });
     // navigation.navigate('Home');
   };
 

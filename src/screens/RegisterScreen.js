@@ -10,7 +10,7 @@ import {
   Platform,
   Image,
 } from 'react-native';
-import Svg, { Circle, G, Path } from 'react-native-svg';
+import Svg, { Path } from 'react-native-svg';
 
 // SVG Icon Components
 const UserIcon = () => (
@@ -139,7 +139,7 @@ export default function RegisterScreen({ navigation }) {
   const [acceptTerms, setAcceptTerms] = useState(false);
 
   const handleRegister = () => {
-    console.log('Register pressed');
+    navigation.navigate('OTPVerification', { email: email });
   };
 
   return (
