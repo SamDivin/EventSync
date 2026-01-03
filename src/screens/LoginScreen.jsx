@@ -10,28 +10,9 @@ import {
   Platform,
   Image,
 } from 'react-native';
-import Svg, { Path } from 'react-native-svg';
+import Svg, { Circle, G, Path, Rect } from 'react-native-svg';
 
 // SVG Icon Components
-const UserIcon = () => (
-  <Svg width="18" height="18" viewBox="0 0 24 24" fill="none">
-    <Path
-      d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21"
-      stroke="#999"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-    <Path
-      d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z"
-      stroke="#999"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </Svg>
-);
-
 const EnvelopeIcon = () => (
   <Svg width="18" height="18" viewBox="0 0 24 24" fill="none">
     <Path
@@ -129,17 +110,14 @@ const AppleIcon = () => (
   </Svg>
 );
 
-export default function RegisterScreen({ navigation }) {
-  const [fullName, setFullName] = useState('');
+export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [acceptTerms, setAcceptTerms] = useState(false);
 
-  const handleRegister = () => {
-    navigation.navigate('OTPVerification', { email: email });
+  const handleLogin = () => {
+    navigation.navigate('Success', { action: 'login' });
+    // navigation.navigate('Home');
   };
 
   return (
@@ -151,13 +129,13 @@ export default function RegisterScreen({ navigation }) {
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-        <View style={styles.logoContainer}>
-          <Image 
-            source={require('../assets/splash.png')} 
-            style={styles.logo}
-            resizeMode="contain"
-          />
-        </View>
+         <View style={styles.logoContainer}>
+            <Image 
+              source={require('../assets/splash.png')} 
+              style={styles.logo}
+              resizeMode="contain"
+            />
+          </View>
 
         <Text style={styles.title}>Welcome</Text>
         <Text style={styles.subtitle}>
@@ -165,22 +143,6 @@ export default function RegisterScreen({ navigation }) {
         </Text>
 
         <View style={styles.formContainer}>
-          <View style={styles.inputGroup}>
-            <Text style={styles.label}>Full Name</Text>
-            <View style={styles.inputWrapper}>
-              <View style={styles.icon}>
-                <UserIcon />
-              </View>
-              <TextInput
-                style={styles.input}
-                placeholder="Enter your full name"
-                placeholderTextColor="#999"
-                value={fullName}
-                onChangeText={setFullName}
-              />
-            </View>
-          </View>
-
           <View style={styles.inputGroup}>
             <Text style={styles.label}>Email</Text>
             <View style={styles.inputWrapper}>
@@ -207,7 +169,7 @@ export default function RegisterScreen({ navigation }) {
               </View>
               <TextInput
                 style={styles.input}
-                placeholder="Create a password"
+                placeholder="Enter your password"
                 placeholderTextColor="#999"
                 value={password}
                 onChangeText={setPassword}
@@ -219,38 +181,12 @@ export default function RegisterScreen({ navigation }) {
             </View>
           </View>
 
-          <View style={styles.inputGroup}>
-            <Text style={styles.label}>Confirm your password</Text>
-            <View style={styles.inputWrapper}>
-              <View style={styles.icon}>
-                <LockIcon />
-              </View>
-              <TextInput
-                style={styles.input}
-                placeholder="Confirm your password"
-                placeholderTextColor="#999"
-                value={confirmPassword}
-                onChangeText={setConfirmPassword}
-                secureTextEntry={!showConfirmPassword}
-              />
-              <TouchableOpacity onPress={() => setShowConfirmPassword(!showConfirmPassword)}>
-                <EyeIcon closed={!showConfirmPassword} />
-              </TouchableOpacity>
-            </View>
-          </View>
-
-          <TouchableOpacity
-            style={styles.checkboxContainer}
-            onPress={() => setAcceptTerms(!acceptTerms)}
-          >
-            <View style={[styles.checkbox, acceptTerms && styles.checkboxChecked]}>
-              {acceptTerms && <Text style={styles.checkmark}>✓</Text>}
-            </View>
-            <Text style={styles.checkboxLabel}>I accept terms and Conditions</Text>
+          <TouchableOpacity>
+            <Text style={styles.forgotPassword}>Forgot Password?</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.registerButton} onPress={handleRegister}>
-            <Text style={styles.registerButtonText}>Create Account</Text>
+          <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
+            <Text style={styles.loginButtonText}>Login</Text>
           </TouchableOpacity>
 
           <View style={styles.divider}>
@@ -273,9 +209,15 @@ export default function RegisterScreen({ navigation }) {
             <Text style={styles.socialButtonText}>Continue with Apple</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-            <Text style={styles.loginText}>
-              Already have an Account? <Text style={styles.loginLink}>Login</Text>
+          <Text style={styles.termsText}>
+            By Continuing you agree to our{'\n'}
+            <Text style={styles.termsLink}>Terms of Service</Text> and{' '}
+            <Text style={styles.termsLink}>Privacy Policy</Text>
+          </Text>
+
+          <TouchableOpacity onPress={() => navigation.navigate('Register')}>
+            <Text style={styles.registerText}>
+              Don't have an account? <Text style={styles.registerLink}>Register</Text>
             </Text>
           </TouchableOpacity>
         </View>
@@ -291,11 +233,11 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     flexGrow: 1,
-    paddingVertical: 30,
+    paddingVertical: 40,
   },
   logoContainer: {
     alignItems: 'center',
-    marginBottom: 10,
+    marginBottom: 15,
   },
   logo: {
     width: 100,
@@ -316,7 +258,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 40,
   },
   formContainer: {
-    backgroundColor: '#5A8B8B',
+    backgroundColor: '#20b0a9d9',
     marginHorizontal: 20,
     borderRadius: 30,
     paddingTop: 30,
@@ -325,14 +267,14 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
   },
   inputGroup: {
-    marginBottom: 6,
+    marginBottom: 10,
   },
   label: {
     fontSize: 14,
     color: '#1A1A1A',
     marginBottom: 2,
+    marginLeft: 10,
     fontWeight: '800',
-    marginLeft: 14,
   },
   inputWrapper: {
     backgroundColor: '#FFFFFF',
@@ -350,43 +292,19 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#000000',
   },
-  checkboxContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 18,
-  },
-  checkbox: {
-    width: 20,
-    height: 20,
-    borderRadius: 4,
-    borderWidth: 2,
-    marginLeft: 12,
-    borderColor: '#ffffffff',
-    marginRight: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'transparent',
-  },
-  checkboxChecked: {
-    backgroundColor: '#2d6b63ff',
-  },
-  checkmark: {
-    color: '#FFFFFF',
-    fontSize: 12,
-    fontWeight: 'bold',
-  },
-  checkboxLabel: {
+  forgotPassword: {
     color: '#1A1A1A',
     fontSize: 13,
-    fontWeight: '500',
+    textAlign: 'right',
+    marginBottom: 10,
+    fontWeight: '700',
   },
-  registerButton: {
+  loginButton: {
     backgroundColor: '#315f5fff',
     borderRadius: 14,
-    paddingVertical: 12,
-    alignItems: 'center',
     paddingVertical: 10,
-    marginBottom: -2,
+    alignItems: 'center',
+    marginBottom: 0,
     shadowColor: '#061010ff',
     shadowOffset: {
       width: 0,
@@ -397,52 +315,63 @@ const styles = StyleSheet.create({
     // Shadow for Android
     elevation: 10,
   },
-  registerButtonText: {
+  loginButtonText: {
     color: '#FFFFFF',
-    fontSize: 14,
-    fontWeight: '600',
+    fontSize: 16,
+    fontWeight: '700',
   },
   divider: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginVertical: 18,
+    marginVertical: 14,
   },
   dividerLine: {
     flex: 1,
     height: 1,
-    backgroundColor: '#fcfcfcff',
+    backgroundColor: '#e4e4e4ff',
   },
   dividerText: {
     color: '#1A1A1A',
     paddingHorizontal: 15,
-    fontSize: 14,
-    fontWeight: '900',
+    fontSize: 16,
+    fontWeight: '800',
   },
   socialButton: {
     backgroundColor: '#FFFFFF',
     borderRadius: 14,
-    paddingVertical: 8,
+    paddingVertical: 10,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 12,
+    marginBottom: 10,
   },
   socialIcon: {
     marginRight: 10,
   },
   socialButtonText: {
     color: '#000000',
-    fontSize: 12,
+    fontSize: 13,
     fontWeight: '600',
   },
-  loginText: {
-    color: '#ffffffff',
+  termsText: {
+    color: '#fcfbfbff',
+    fontSize: 12,
+    textAlign: 'center',
+    marginTop: 15,
+    marginBottom: 15,
+  },
+  termsLink: {
+    fontWeight: '600',
+    color: '#000000',
+    textDecorationLine: 'none',
+  },
+  registerText: {
+    color: '#f9f5f5ff',
     fontSize: 14,
     textAlign: 'center',
     marginTop: 10,
-    marginBottom: 20,
   },
-  loginLink: {
+  registerLink: {
     fontWeight: '700',
     color: '#000000',
   },

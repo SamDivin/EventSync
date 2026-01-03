@@ -34,12 +34,12 @@ export default function SuccessScreen({ navigation, route }) {
         toValue: 1,
         tension: 50,
         friction: 7,
-        useNativeDriver: true,
+        useNativeDriver: false,
       }),
       Animated.timing(fadeAnim, {
         toValue: 1,
         duration: 500,
-        useNativeDriver: true,
+        useNativeDriver: false,
       }),
     ]).start();
 

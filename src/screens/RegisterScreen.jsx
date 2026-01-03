@@ -10,14 +10,33 @@ import {
   Platform,
   Image,
 } from 'react-native';
-import Svg, { Circle, G, Path, Rect } from 'react-native-svg';
+import Svg, { Path } from 'react-native-svg';
 
 // SVG Icon Components
+const UserIcon = () => (
+  <Svg width="18" height="18" viewBox="0 0 24 24" fill="none">
+    <Path
+      d="M20 21V19C20 17.9391 19.5786 16.9217 18.8284 16.1716C18.0783 15.4214 17.0609 15 16 15H8C6.93913 15 5.92172 15.4214 5.17157 16.1716C4.42143 16.9217 4 17.9391 4 19V21"
+      stroke="#6F9997"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <Path
+      d="M12 11C14.2091 11 16 9.20914 16 7C16 4.79086 14.2091 3 12 3C9.79086 3 8 4.79086 8 7C8 9.20914 9.79086 11 12 11Z"
+      stroke="#6F9997"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </Svg>
+);
+
 const EnvelopeIcon = () => (
   <Svg width="18" height="18" viewBox="0 0 24 24" fill="none">
     <Path
       d="M3 8L10.89 13.26C11.23 13.47 11.61 13.59 12 13.59C12.39 13.59 12.77 13.47 13.11 13.26L21 8M5 19H19C19.5304 19 20.0391 18.7893 20.4142 18.4142C20.7893 18.0391 21 17.5304 21 17V7C21 6.46957 20.7893 5.96086 20.4142 5.58579C20.0391 5.21071 19.5304 5 19 5H5C4.46957 5 3.96086 5.21071 3.58579 5.58579C3.21071 5.96086 3 6.46957 3 7V17C3 17.5304 3.21071 18.0391 3.58579 18.4142C3.96086 18.7893 4.46957 19 5 19Z"
-      stroke="#999"
+      stroke="#6F9997"
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -29,14 +48,14 @@ const LockIcon = () => (
   <Svg width="18" height="18" viewBox="0 0 24 24" fill="none">
     <Path
       d="M19 11H5C3.89543 11 3 11.8954 3 13V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V13C21 11.8954 20.1046 11 19 11Z"
-      stroke="#999"
+      stroke="#6F9997"
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
     />
     <Path
       d="M7 11V7C7 5.67392 7.52678 4.40215 8.46447 3.46447C9.40215 2.52678 10.6739 2 12 2C13.3261 2 14.5979 2.52678 15.5355 3.46447C16.4732 4.40215 17 5.67392 17 7V11"
-      stroke="#999"
+      stroke="#6F9997"
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -50,13 +69,13 @@ const EyeIcon = ({ closed }) => (
       <>
         <Path
           d="M3 3L21 21"
-          stroke="#999"
+          stroke="#6F9997"
           strokeWidth="2"
           strokeLinecap="round"
         />
         <Path
           d="M10.5 10.677C10.0353 11.1596 9.76923 11.8049 9.76923 12.4776C9.76923 13.1503 10.0353 13.7956 10.5 14.2782M14.7 14.8252C14.2815 15.2564 13.7221 15.5266 13.1205 15.5839C12.5188 15.6411 11.9164 15.4817 11.4202 15.1339C10.9239 14.7861 10.5667 14.2719 10.4136 13.6819C10.2605 13.092 10.3216 12.4656 10.5861 11.9159M17.3 17.456C15.7909 18.6421 13.9275 19.2858 12.0091 19.2891C5.00909 19.2891 1.00909 12.2891 1.00909 12.2891C2.14454 10.172 3.72894 8.34821 5.64909 6.95908M9.77 5.47406C10.5043 5.26805 11.2575 5.16452 12.0136 5.16588C19.0136 5.16588 23.0136 12.1659 23.0136 12.1659C22.5618 12.9752 22.0406 13.7445 21.4545 14.4659M13.9409 12.9432C13.8271 13.3579 13.5926 13.7302 13.2664 14.0131C12.9403 14.2959 12.5373 14.4769 12.1088 14.5339C11.6804 14.5909 11.2445 14.5215 10.8537 14.3339C10.4628 14.1462 10.134 13.8479 9.90591 13.4748"
-          stroke="#999"
+          stroke="#6F9997"
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -66,14 +85,14 @@ const EyeIcon = ({ closed }) => (
       <>
         <Path
           d="M1 12C1 12 5 4 12 4C19 4 23 12 23 12C23 12 19 20 12 20C5 20 1 12 1 12Z"
-          stroke="#999"
+          stroke="#6F9997"
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
         />
         <Path
           d="M12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12C9 13.6569 10.3431 15 12 15Z"
-          stroke="#999"
+          stroke="#6F9997"
           strokeWidth="2"
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -110,14 +129,17 @@ const AppleIcon = () => (
   </Svg>
 );
 
-export default function LoginScreen({ navigation }) {
+export default function RegisterScreen({ navigation }) {
+  const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [acceptTerms, setAcceptTerms] = useState(false);
 
-  const handleLogin = () => {
-    navigation.navigate('Success', { action: 'login' });
-    // navigation.navigate('Home');
+  const handleRegister = () => {
+    navigation.navigate('OTPVerification', { email: email });
   };
 
   return (
@@ -129,13 +151,13 @@ export default function LoginScreen({ navigation }) {
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
-         <View style={styles.logoContainer}>
-            <Image 
-              source={require('../assets/splash.png')} 
-              style={styles.logo}
-              resizeMode="contain"
-            />
-          </View>
+        <View style={styles.logoContainer}>
+          <Image 
+            source={require('../assets/splash.png')} 
+            style={styles.logo}
+            resizeMode="contain"
+          />
+        </View>
 
         <Text style={styles.title}>Welcome</Text>
         <Text style={styles.subtitle}>
@@ -143,6 +165,22 @@ export default function LoginScreen({ navigation }) {
         </Text>
 
         <View style={styles.formContainer}>
+          <View style={styles.inputGroup}>
+            <Text style={styles.label}>Full Name</Text>
+            <View style={styles.inputWrapper}>
+              <View style={styles.icon}>
+                <UserIcon />
+              </View>
+              <TextInput
+                style={styles.input}
+                placeholder="Enter your full name"
+                placeholderTextColor="#999"
+                value={fullName}
+                onChangeText={setFullName}
+              />
+            </View>
+          </View>
+
           <View style={styles.inputGroup}>
             <Text style={styles.label}>Email</Text>
             <View style={styles.inputWrapper}>
@@ -169,7 +207,7 @@ export default function LoginScreen({ navigation }) {
               </View>
               <TextInput
                 style={styles.input}
-                placeholder="Enter your password"
+                placeholder="Create a password"
                 placeholderTextColor="#999"
                 value={password}
                 onChangeText={setPassword}
@@ -181,12 +219,18 @@ export default function LoginScreen({ navigation }) {
             </View>
           </View>
 
-          <TouchableOpacity>
-            <Text style={styles.forgotPassword}>Forgot Password?</Text>
+          <TouchableOpacity
+            style={styles.checkboxContainer}
+            onPress={() => setAcceptTerms(!acceptTerms)}
+          >
+            <View style={[styles.checkbox, acceptTerms && styles.checkboxChecked]}>
+              {acceptTerms && <Text style={styles.checkmark}>✓</Text>}
+            </View>
+            <Text style={styles.checkboxLabel}>I accept terms and Conditions</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
-            <Text style={styles.loginButtonText}>Login</Text>
+          <TouchableOpacity style={styles.registerButton} onPress={handleRegister}>
+            <Text style={styles.registerButtonText}>Create Account</Text>
           </TouchableOpacity>
 
           <View style={styles.divider}>
@@ -209,15 +253,9 @@ export default function LoginScreen({ navigation }) {
             <Text style={styles.socialButtonText}>Continue with Apple</Text>
           </TouchableOpacity>
 
-          <Text style={styles.termsText}>
-            By Continuing you agree to our{'\n'}
-            <Text style={styles.termsLink}>Terms of Service</Text> and{' '}
-            <Text style={styles.termsLink}>Privacy Policy</Text>
-          </Text>
-
-          <TouchableOpacity onPress={() => navigation.navigate('Register')}>
-            <Text style={styles.registerText}>
-              Don't have an account? <Text style={styles.registerLink}>Register</Text>
+          <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+            <Text style={styles.loginText}>
+              Already have an Account? <Text style={styles.loginLink}>Login</Text>
             </Text>
           </TouchableOpacity>
         </View>
@@ -233,11 +271,11 @@ const styles = StyleSheet.create({
   },
   scrollContent: {
     flexGrow: 1,
-    paddingVertical: 40,
+    paddingVertical: 30,
   },
   logoContainer: {
     alignItems: 'center',
-    marginBottom: 15,
+    marginBottom: 10,
   },
   logo: {
     width: 100,
@@ -258,7 +296,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 40,
   },
   formContainer: {
-    backgroundColor: '#5A8B8B',
+    backgroundColor: '#4F7472',
     marginHorizontal: 20,
     borderRadius: 30,
     paddingTop: 30,
@@ -267,14 +305,14 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
   },
   inputGroup: {
-    marginBottom: 10,
+    marginBottom: 6,
   },
   label: {
     fontSize: 14,
     color: '#1A1A1A',
     marginBottom: 2,
-    marginLeft: 10,
     fontWeight: '800',
+    marginLeft: 14,
   },
   inputWrapper: {
     backgroundColor: '#FFFFFF',
@@ -286,25 +324,50 @@ const styles = StyleSheet.create({
   },
   icon: {
     marginRight: 10,
+    color: '#952323ff',
   },
   input: {
     flex: 1,
     fontSize: 14,
-    color: '#000000',
+    color: '#000000ff',
   },
-  forgotPassword: {
+  checkboxContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 18,
+  },
+  checkbox: {
+    width: 20,
+    height: 20,
+    borderRadius: 4,
+    borderWidth: 2,
+    marginLeft: 12,
+    borderColor: '#ffffffff',
+    marginRight: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'transparent',
+  },
+  checkboxChecked: {
+    backgroundColor: '#2d6b63ff',
+  },
+  checkmark: {
+    color: '#FFFFFF',
+    fontSize: 12,
+    fontWeight: 'bold',
+  },
+  checkboxLabel: {
     color: '#1A1A1A',
     fontSize: 13,
-    textAlign: 'right',
-    marginBottom: 10,
-    fontWeight: '700',
+    fontWeight: '500',
   },
-  loginButton: {
-    backgroundColor: '#315f5fff',
+  registerButton: {
+    backgroundColor: '#2A4A4A',
     borderRadius: 14,
-    paddingVertical: 10,
+    paddingVertical: 12,
     alignItems: 'center',
-    marginBottom: 0,
+    paddingVertical: 10,
+    marginBottom: -2,
     shadowColor: '#061010ff',
     shadowOffset: {
       width: 0,
@@ -315,63 +378,52 @@ const styles = StyleSheet.create({
     // Shadow for Android
     elevation: 10,
   },
-  loginButtonText: {
+  registerButtonText: {
     color: '#FFFFFF',
-    fontSize: 16,
-    fontWeight: '700',
+    fontSize: 14,
+    fontWeight: '600',
   },
   divider: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginVertical: 14,
+    marginVertical: 18,
   },
   dividerLine: {
     flex: 1,
     height: 1,
-    backgroundColor: '#e4e4e4ff',
+    backgroundColor: '#fcfcfcff',
   },
   dividerText: {
     color: '#1A1A1A',
     paddingHorizontal: 15,
-    fontSize: 16,
-    fontWeight: '800',
+    fontSize: 14,
+    fontWeight: '900',
   },
   socialButton: {
     backgroundColor: '#FFFFFF',
     borderRadius: 14,
-    paddingVertical: 10,
+    paddingVertical: 8,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 10,
+    marginBottom: 12,
   },
   socialIcon: {
     marginRight: 10,
   },
   socialButtonText: {
     color: '#000000',
-    fontSize: 13,
-    fontWeight: '600',
-  },
-  termsText: {
-    color: '#fcfbfbff',
     fontSize: 12,
-    textAlign: 'center',
-    marginTop: 15,
-    marginBottom: 15,
-  },
-  termsLink: {
     fontWeight: '600',
-    color: '#000000',
-    textDecorationLine: 'none',
   },
-  registerText: {
-    color: '#f9f5f5ff',
+  loginText: {
+    color: '#ffffffff',
     fontSize: 14,
     textAlign: 'center',
     marginTop: 10,
+    marginBottom: 20,
   },
-  registerLink: {
+  loginLink: {
     fontWeight: '700',
     color: '#000000',
   },

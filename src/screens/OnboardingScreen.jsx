@@ -195,13 +195,13 @@ const styles = StyleSheet.create({
   button: {
     width: 129,
     height: 40,
-    backgroundColor: '#5A8B8B',
+    backgroundColor: '#2A4A4A',
     borderRadius: 38,
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 20,
     // Shadow for iOS
-    shadowColor: '#5A8B8B',
+    shadowColor: '#3d5858ff',
     shadowOffset: {
       width: 0,
       height: 8,
@@ -215,5 +215,6 @@ const styles = StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 16,
     fontWeight: '600',
+    fontFamily: 'Arial',
   },
 });
